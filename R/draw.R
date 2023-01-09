@@ -56,6 +56,8 @@ addDrawToolbar <- function(
   editOptions = FALSE,
   singleFeature = FALSE
 ) {
+	  if (!inherits(toolbar, "list")) toolbar <- NULL
+  if (!inherits(handlers, "list")) handlers <- NULL
 
   if (!is.null(targetGroup) && !is.null(targetLayerId)) {
       stop("To edit existing features either specify a targetGroup or a targetLayerId, but not both")
@@ -89,7 +91,9 @@ addDrawToolbar <- function(
       marker = markerOptions,
       circlemarker = circleMarkerOptions,
       singleFeature = singleFeature)),
-    edit = editOptions )
+    edit = editOptions,
+    toolbar = toolbar,
+    handlers = handlers )
 
   leaflet::invokeMethod(map, leaflet::getMapData(map), "addDrawToolbar",
                         targetLayerId, targetGroup, options)
