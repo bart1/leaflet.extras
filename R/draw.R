@@ -54,7 +54,9 @@ addDrawToolbar <- function(
   markerOptions = drawMarkerOptions(),
   circleMarkerOptions = drawCircleMarkerOptions(),
   editOptions = FALSE,
-  singleFeature = FALSE
+  singleFeature = FALSE,
+  toolbar = NULL,
+  handlers = NULL
 ) {
 	  if (!inherits(toolbar, "list")) toolbar <- NULL
   if (!inherits(handlers, "list")) handlers <- NULL
